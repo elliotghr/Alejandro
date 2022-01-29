@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <!--- Metatags -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Galería de fotos por Alejando Candó, albumes de Espectros, De$santos, Urb-vanidad entre otros." />
+  <meta name="Keywords" content="Fotografía, galería, Alejandro, Cando, Espectros, Coleccion, Fragmentos, Rastro, Urbanidad, Urb-vanidad, Santos" />
+  <meta name="author" content="Gandarilla Pérez Elliot César" />
+  <meta http-equiv="cache-control" content="no-cache" />
+  <title>Alejandro Candó</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/hamburgers/1.1.3/hamburgers.min.css" integrity="sha512-+mlclc5Q/eHs49oIOCxnnENudJWuNqX5AogCiqRBgKnpoplPzETg2fkgBFVC6WYUVxYYljuxPNG8RE7yBy1K+g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="short icon" href="img/Logo.png" />
+  <link rel="stylesheet" type="text/css" href="style.css" />
+  <!--slider-->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css" />
+  <!--Fontawesome-->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous" />
+</head>
+
+<body data-dark>
+  <?php
+  include_once "db_empresa.php";
+  $conexion = mysqli_connect($db_host, $db_user, $db_pass, $db_database);
+  if ($conexion == false) {
+    die("Humano hay un error en la conexion arreglalo " . mysqli_connect_error());
+  }
+  $sql = "SELECT nombre FROM coleccion";
+  $resultadoColeccion = mysqli_query($conexion, $sql);
+
+  $sql = "SELECT nombre FROM espectros";
+  $resultadoEspectros = mysqli_query($conexion, $sql);
+
+  $sql = "SELECT nombre FROM fragmentos";
+  $resultadoFragmentos = mysqli_query($conexion, $sql);
+
+  $sql = "SELECT nombre FROM rastro";
+  $resultadoRastro = mysqli_query($conexion, $sql);
+
+  $sql = "SELECT nombre FROM santos";
+  $resultadoSantos = mysqli_query($conexion, $sql);
+
+  $sql = "SELECT nombre FROM urbanidad";
+  $resultadoUrbanidad = mysqli_query($conexion, $sql);
+
+  ?>
+  <header class="header">
+    <section class="container">
+      <div class="logo">
+        <a href="index.html">Alejandro Candó</a>
+      </div>
+      <aside class="panel">
+        <nav class="menu">
+          <a href="#espectros">Espectros</a>
+          <a href="#fragmentos">Fragmentos</a>
+          <a href="#santos">De$antos</a>
+          <a href="#urbanidad">Urb-vanidad</a>
+          <a href="#coleccion">Colección</a>
+          <a href="#rastro">Rastros</a>
+          <a href="#contacto">Contacto</a>
+        </nav>
+      </aside>
+      <button class="panel-btn hamburger hamburger--vortex" type="button">
+        <span class="hamburger-box">
+          <span class="hamburger-inner"></span>
+        </span>
+      </button>
+    </section>
+  </header>
+  <section id="inicio" class="home">
+    <article class="hero-image" style="--image: url('img/portada.webp'); --attachment: fixed">
+      <aside class="hero-image-opacity" style="--hero-opacity-color: var(--black-alpha-color)">
+        <div class="hero-image-content"></div>
+      </aside>
+    </article>
+  </section>
+  <main>
+    <section class="section-background-color container-stretch" data-gray>
+      <article class="article" data-gray>
+        <h2 class="title-color" data-gray>¿Quién Soy?</h>
+          <p>Un enfoque</p>
+      </article>
+      <hr />
+      <!-- Espectros-->
+      <article class="article" data-gray>
+        <h2 class="title-color" id="espectros" data-gray>Espectros</h2>
+        <div class="bxslider">
+          <li><img src="img/Portadas/espectros.jpg" alt="" /></li>
+          <?php
+          while ($row = mysqli_fetch_assoc($resultadoEspectros)) {
+          ?>
+            <li>
+              <img src="img/espectros/<?php echo $row['nombre'] ?>" alt="" />
+            </li>
+          <?php
+          }
+          ?>
+        </div>
+      </article>
+      <hr />
+      <!-- Fragmentos-->
+      <article class="article" data-gray>
+        <h2 class="title-color" id="fragmentos" data-gray>Fragmentos</h2>
+        <div class="bxslider">
+          <li><img src="img/Portadas/fragmentos.jpg" alt="" /></li>
+          <?php
+          while ($row = mysqli_fetch_assoc($resultadoFragmentos)) {
+          ?>
+            <li>
+              <img src="img/fragmentos/<?php echo $row['nombre'] ?>" alt="" />
+            </li>
+          <?php
+          }
+          ?>
+        </div>
+      </article>
+      <hr />
+      <!-- Santos-->
+      <article class="article" data-gray>
+        <h2 class="title-color" id="santos" data-gray>Santos</h2>
+        <div class="bxslider">
+          <li><img src="img/Portadas/santos.jpg" alt="" /></li>
+          <?php
+          while ($row = mysqli_fetch_assoc($resultadoSantos)) {
+          ?>
+            <li>
+              <img src="img/santos/<?php echo $row['nombre'] ?>" alt="" />
+            </li>
+          <?php
+          }
+          ?>
+        </div>
+      </article>
+      <hr />
+      <!-- Urbanidad-->
+      <article class="article" data-gray>
+        <h2 class="title-color" id="urbanidad" data-gray>Urbanidad</h2>
+        <div class="bxslider">
+          <li><img src="img/Portadas/urbanidad.jpg" alt="" /></li>
+          <?php
+          while ($row = mysqli_fetch_assoc($resultadoUrbanidad)) {
+          ?>
+            <li>
+              <img src="img/urbanidad/<?php echo $row['nombre'] ?>" alt="" />
+            </li>
+          <?php
+          }
+          ?>
+        </div>
+      </article>
+      <hr />
+      <!-- Coleccion-->
+      <article class="article" data-gray>
+        <h2 class="title-color" id="coleccion" data-gray>Coleccion</h2>
+        <div class="bxslider">
+          <li><img src="img/Portadas/coleccion.jpg" alt="" /></li>
+          <?php
+          while ($row = mysqli_fetch_assoc($resultadoColeccion)) {
+          ?>
+            <li>
+              <img src="img/coleccion/<?php echo $row['nombre'] ?>" alt="" />
+            </li>
+          <?php
+          }
+          ?>
+        </div>
+      </article>
+      <hr />
+      <!-- Rastro-->
+      <article class="article" data-gray>
+        <h2 class="title-color" id="rastro" data-gray>Rastros</h2>
+        <div class="bxslider">
+          <li><img src="img/Portadas/rastro.jpg" alt="" /></li>
+          <?php
+          while ($row = mysqli_fetch_assoc($resultadoRastro)) {
+          ?>
+            <li>
+              <img src="img/rastro/<?php echo $row['nombre'] ?>" alt="" />
+            </li>
+          <?php
+          }
+          ?>
+        </div>
+      </article>
+    </section>
+    <!-- Contacto-->
+    <section class="section-background-color contact" data-gray>
+      <article class="contact-article">
+        <h2 class="title-color" id="contacto" data-gray> Contacto</h2>
+        <!-- <p class="contacto-parrafo title">Puedes contactarme en:</p>
+          <p class="contacto-parrafo">
+            <img
+              class="correo-abierto"
+              src="/img/correo.webp"
+              alt="logo correo abierto"
+            />
+            candoalejandro167@gmail.com
+          </p> -->
+      </article>
+      <article class="container">
+        <form class="contact-form"">
+            <legend>Puedes contactarme aquí</legend>
+            <input
+              type=" text" name="name" placeholder="Escribe tu nombre" title="Nombre sólo acepta letras y espacios en blanco" pattern="^[A-Za-zÑñÁáÉéÍíÓóÚúÜü\s]+$" required />
+        <input type="email" name="email" placeholder="Escribe tu email" title="Email incorrecto" pattern="^[a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,15})$" required />
+        <input type="text" name="subject" placeholder="Asunto a tratar" title="El Asunto es requerido" required />
+        <textarea name="comments" cols="50" rows="5" placeholder="Escribe tus comentarios" title="Tu comentario no debe exceder los 255 caracteres" data-pattern="^.{1,255}$" required></textarea>
+        <input type="submit" value="Enviar" />
+        <div class="contact-form-loader none">
+          <img src="assets/loader.svg" alt="Cargando" />
+        </div>
+        <div class="contact-form-response none">
+          <p>Los datos han sido enviados</p>
+        </div>
+        </form>
+
+      </article>
+    </section>
+  </main>
+
+  <footer>
+    <section class="footer-section"></section>
+  </footer>
+  <button class="dark-theme-btn">🌙</button>
+  <button class="scroll-top-btn hidden">&#11014;</button>
+  <!--Jquery-->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <!--Slider-->
+  <script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
+  <!--Js-->
+  <script src="js/jQuery.js"></script>
+  <script src="js/index_dom.js" type="module"></script>
+</body>
+
+</html>
