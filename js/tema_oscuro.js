@@ -34,6 +34,7 @@ export default function darkTheme(btn, classDark, classGray) {
       // console.log(el);
       el.classList.remove("section-background-color");
       el.classList.remove("title-color");
+      el.classList.remove("second-color");
       el.classList.add(classGray);
     });
     $themeBtn.textContent = sun;
