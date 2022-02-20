@@ -14,7 +14,8 @@
   <link rel="stylesheet" type="text/css" href="./css/style.css" />
   <meta name="description"
     content="Galería de fotos por Alejando Candó, albumes de Espectros, De$santos, Urb-vanidad entre otros." />
-  <meta name="keywords" content="Alejandro, Candó, Fotografía, Espectros, Fragmentos, DeSantos, Urb-vanidad, Coleccion, Rastros">
+  <meta name="keywords"
+    content="Alejandro, Candó, Fotografía, Espectros, Fragmentos, DeSantos, Urb-vanidad, Coleccion, Rastros">
   <meta name="author" content="Elliot Gandarilla">
   <link rel="canonical" href="https://alejandrocando.com/" />
   <link rel="favicon" href="https://alejandrocando.com/img/portada.webp" />
@@ -31,9 +32,6 @@
 
   <!--Glider-->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glider-js@1.7.3/glider.min.css" />
-  <!--Fontawesome-->
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
-    integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous" />
 </head>
 
 <body data-dark>
@@ -53,7 +51,7 @@
           <a href="#contacto">Contacto</a>
         </nav>
       </aside>
-      <button class="panel-btn hamburger hamburger--vortex" type="button">
+      <button class="panel-btn hamburger hamburger--spring" type="button">
         <span class="hamburger-box">
           <span class="hamburger-inner"></span>
         </span>
@@ -64,42 +62,46 @@
   <section id="inicio" class="home">
     <article class="hero-image" style="--image: url('../img/portada.webp'); --attachment: fixed">
       <aside class="hero-image-opacity" style="--hero-opacity-color: var(--black-alpha-color)">
+        <div class="hero-image-content scroll-animation">
+          <h2 class="hero-image-title" style="--hero-text-color: var(--white-color)">
+            Alejandro Candó
+          </h2>
+        </div>
       </aside>
     </article>
   </section>
 
   <main>
     <section class="section-background-color container-stretch album-container" data-gray>
-      <article class="article" data-gray>
-        <h2 class="title-color" data-gray>¿Quién Soy?</h>
-          <p>Un enfoque</p>
+      <article class="article scroll-animation" data-gray>
+        <h2 class="title-color title-style" data-gray>¿Quién Soy?</h2>
+        <p>Un enfoque</p>
       </article>
       <hr />
       </article>
     </section>
     <!-- Contact Section-->
-    <section class="section-background-color contact" data-gray>
-      <div class="contact-div">
-        <h2 class="title-color" id="contacto" data-gray> Contacto</h2>
+    <section class="section-background-color contact " data-gray>
+      <div class="contact-div scroll-animation">
+        <h2 class="title-color title-style" id="contacto" data-gray> Contacto</h2>
         </article>
         <article class="container">
           <form class="contact-form">
             <legend>Puedes contactarme aquí</legend>
-            <input
-              type=" text" name="name" placeholder="Escribe tu nombre"
-            title="Nombre sólo acepta letras y espacios en blanco" pattern="^[A-Za-zÑñÁáÉéÍíÓóÚúÜü\s]+$" required />
-          <input type="email" name="email" placeholder="Escribe tu email" title="Email incorrecto"
-            pattern="^[a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,15})$" required />
-          <input type="text" name="subject" placeholder="Asunto a tratar" title="El Asunto es requerido" required />
-          <textarea name="comments" cols="50" rows="5" placeholder="Escribe tus comentarios"
-            title="Tu comentario no debe exceder los 255 caracteres" data-pattern="^.{1,255}$" required></textarea>
-          <input type="submit" value="Enviar" />
-          <div class="contact-form-loader none">
-            <img src="assets/loader.svg" alt="Cargando" />
-          </div>
-          <div class="contact-form-response none">
-            <p>Los datos han sido enviados</p>
-          </div>
+            <input type=" text" name="name" placeholder="Escribe tu nombre"
+              title="Nombre sólo acepta letras y espacios en blanco" pattern="^[A-Za-zÑñÁáÉéÍíÓóÚúÜü\s]+$" required />
+            <input type="email" name="email" placeholder="Escribe tu email" title="Email incorrecto"
+              pattern="^[a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,15})$" required />
+            <input type="text" name="subject" placeholder="Asunto a tratar" title="El Asunto es requerido" required />
+            <textarea name="comments" cols="50" rows="5" placeholder="Escribe tus comentarios"
+              title="Tu comentario no debe exceder los 255 caracteres" data-pattern="^.{1,255}$" required></textarea>
+            <input type="submit" value="Enviar" />
+            <div class="contact-form-loader none">
+              <img src="assets/loader.svg" alt="Cargando" />
+            </div>
+            <div class="contact-form-response none">
+              <p>Los datos han sido enviados</p>
+            </div>
           </form>
 
         </article>
@@ -112,10 +114,10 @@
   <button class="dark-theme-btn">🌙</button>
   <button class="scroll-top-btn hidden">&#11014;</button>
   <!-- Templates -->
-  <template id="contenedor-template">
+  <template id="contenedor-template" class="scroll-animation">
     <div class="contenedor">
       <div class="title">
-        <h2></h2>
+        <h2 class="title-style"></h2>
       </div>
       <div class="carousel">
         <div class="carousel__contenedor">
@@ -141,7 +143,7 @@
       <img />
     </div>
   </template>
-  
+
   <!--Glider-->
   <script src="https://cdn.jsdelivr.net/npm/glider-js@1.7.3/glider.min.js"></script>
   <!--Js-->

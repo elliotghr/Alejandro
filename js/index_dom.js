@@ -3,9 +3,9 @@ import darkTheme from "./tema_oscuro.js";
 import scrollTopButton from "./boton_scroll.js";
 import contactForm from "./contact-form.js";
 import ImgContainer from "./image-container.js";
+import ScrollAnimation from "./fade-scroll.js";
 
-const d = document;
-d.addEventListener("DOMContentLoaded", (e) => {
+document.addEventListener("DOMContentLoaded", (e) => {
   hamburgerMenu(".panel-btn", ".panel", ".menu a");
   scrollTopButton(".scroll-top-btn");
   contactForm();
@@ -15,6 +15,9 @@ d.addEventListener("DOMContentLoaded", (e) => {
   ImgContainer("urbanidad");
   ImgContainer("coleccion");
   ImgContainer("rastros");
+  ScrollAnimation();
 });
+
+window.addEventListener("scroll", ScrollAnimation);
 
 darkTheme(".dark-theme-btn", "dark-mode", "gray-mode");

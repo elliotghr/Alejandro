@@ -1,0 +1,138 @@
+/* **********     menu-hamburguesa     ********** */
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 99999;
+  height: var(--header-height);
+  background-color: var(--second-color);
+  color: var(--main-color);
+}
+
+.header .container {
+  height: inherit;
+  display: flex;
+  align-content: center;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1rem;
+}
+
+.panel {
+  position: fixed;
+  z-index: 999999;
+  top: var(--header-height);
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow-y: auto;
+  background-color: var(--second-color);
+  opacity: 0;
+  visibility: hidden;
+  transition: transform 0.4s ease, opacity 0.5s ease;
+  transform: translate(100%, 0);
+}
+
+.panel.is-active {
+  transform: translate(0, 0);
+  opacity: 1;
+  visibility: visible;
+}
+
+.panel-btn {
+  z-index: 9999999;
+  top: 0vh;
+  right: 1vw;
+  width: 3rem;
+  height: 3rem;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.menu {
+  width: inherit;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  text-align: center;
+}
+
+.menu a {
+  padding: 2rem;
+  width: inherit;
+  display: block;
+  font-size: 1.2rem;
+  text-decoration: none;
+  color: var(--first-color);
+  transition: all 0.3s ease;
+}
+
+.menu a:hover {
+  font-weight: bold;
+  color: var(--second-color);
+  background-color: var(--first-color);
+}
+.hamburger-inner,
+.hamburger-inner::after,
+.hamburger-inner::before,
+.hamburger.is-active .hamburger-inner,
+.hamburger.is-active .hamburger-inner:after,
+.hamburger.is-active .hamburger-inner:before {
+  z-index: 99999;
+  background-color: var(--first-color);
+}
+
+@media screen and (min-width: 1024px) {
+  .header {
+    position: static;
+    top: 0;
+  }
+  .header .container {
+    flex-direction: row;
+  }
+  .panel {
+    position: static;
+    width: 85%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    opacity: 1;
+    visibility: visible;
+    transform: translate(0, 0);
+  }
+
+  .panel-btn {
+    display: none;
+    visibility: visible;
+  }
+
+  .menu {
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    text-align: center;
+  }
+
+  .menu a {
+    padding: 0;
+    width: inherit;
+    display: block;
+    font-size: 1rem;
+    text-decoration: none;
+    color: var(--first-color);
+    transition: all 0.3s ease;
+  }
+
+  .menu a:hover {
+    font-weight: bold;
+    color: var(--first-color);
+    background-color: var(--second-color);
+  }
+}

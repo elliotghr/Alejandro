@@ -115,7 +115,7 @@ p {
   cursor: pointer;
   text-align: center;
   background: none;
-  color: #A89CC8;
+  color: #a89cc8;
   z-index: 999;
   font-size: 2rem;
 }
@@ -275,6 +275,26 @@ p {
   color: var(--first-color);
 }
 
+/* ********* Fade Scroll********* */
+.scroll-animation {
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+.scroll-animation-abajo {
+  animation: scrollAnimation 1s ease-in-out;
+}
+
+@keyframes scrollAnimation {
+  0% {
+    transform: translateY(60px);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}
+
 /* ******* Hero Image ******* */
 .hero-image {
   background-image: var(--image);
@@ -295,6 +315,7 @@ p {
 .hero-image-title {
   font-size: 7.5vw;
   color: var(--hero-text-color);
+  opacity: .8;
 }
 
 /* **********     menu-hamburguesa     ********** */
@@ -537,7 +558,7 @@ hr {
   width: 80%;
   height: 0.1rem;
 }
-h2 {
+.title-style {
   text-align: center;
   font-size: 3rem;
   padding-top: var(--header-height);

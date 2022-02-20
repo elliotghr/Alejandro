@@ -5,7 +5,7 @@ if ($conexion == false) {
     die("Humano hay un error en la conexion arreglalo " . mysqli_connect_error());
 }
 
-$sql = "SELECT nombre FROM espectros";
+$sql = "SELECT nombre FROM espectros WHERE id < 30";
 $resultadoSantos = mysqli_query($conexion, $sql);
 $result= [];
 
