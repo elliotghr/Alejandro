@@ -4,6 +4,7 @@ import scrollTopButton from "./boton_scroll.js";
 import contactForm from "./contact-form.js";
 import ImgContainer from "./image-container.js";
 import ScrollAnimation from "./fade-scroll.js";
+import headerTramsparent from "../headerTransparent.js";
 
 document.addEventListener("DOMContentLoaded", (e) => {
   hamburgerMenu(".panel-btn", ".panel", ".menu a");
@@ -16,8 +17,12 @@ document.addEventListener("DOMContentLoaded", (e) => {
   ImgContainer("coleccion");
   ImgContainer("rastros");
   ScrollAnimation();
+  // headerTramsparent()
 });
 
-window.addEventListener("scroll", ScrollAnimation);
+window.addEventListener("scroll",e =>{
+  ScrollAnimation();
+  // headerTramsparent();
+} );
 
 darkTheme(".dark-theme-btn", "dark-mode", "gray-mode");
